@@ -1,0 +1,42 @@
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8083/eureka
+server:
+    port: 8085
+
+
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 30000
+
+
+zuul:
+    ignoredServices: '*'
+    host:
+        max-total-connections: 100
+        max-per-route-connections: 100
+    routes:
+        ## By default, all requests to producer service for example will start with: "/producer/"
+        ## What will be sent to the producer service is what comes after the path defined,
+        ## So, if request is "/producer/employee", producer service will get "/employee".
+        employee-producer:
+            path: /producer/**
+            service-id: EMPLOYEE-PRODUCER
+        Spring-Boot-REST-Hibernate-PostgreSql-CRUD:
+            path: /empdetails/**
+            serviceId: SPRING-BOOT-REST-HIBERNATE-POSTGRESQL-CRUD
+
+spring:
+    application:
+            name: netflix-zuul-gateway
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: hystrix.stream
