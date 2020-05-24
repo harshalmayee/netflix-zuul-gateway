@@ -1,7 +1,9 @@
-eureka:
-    client:
-        serviceUrl:
-            defaultZone: http://localhost:8083/eureka
+#Commented as this configuration will be fetched from Spring Cloud Config
+# Eureka Server URL
+#eureka:
+#    client:
+#        serviceUrl:
+#            defaultZone: http://localhost:8083/eureka
 server:
     port: 8085
 
