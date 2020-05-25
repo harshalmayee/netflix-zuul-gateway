@@ -37,8 +37,9 @@ spring:
     application:
             name: netflix-zuul-gateway
 
-management:
-    endpoints:
-        web:
-            exposure:
-                include: hystrix.stream
+#management:
+#    endpoints:
+#        web:
+#            exposure:
+#                include: hystrix.stream
+
