@@ -29,6 +29,7 @@ zuul:
         employee-producer:
             path: /producer/**
             service-id: EMPLOYEE-PRODUCER
+
         Spring-Boot-REST-Hibernate-PostgreSql-CRUD:
             path: /empdetails/**
             serviceId: SPRING-BOOT-REST-HIBERNATE-POSTGRESQL-CRUD
